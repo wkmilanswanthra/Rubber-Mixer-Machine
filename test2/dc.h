@@ -14,8 +14,8 @@ void acvt_mixer();
 
 void acvt_mixer(){
 	dc_init();
-	dc_clk(20);
-	dc_aclk(20);
+	dc_clk(2500);
+	dc_aclk(2500);
 	dc_stp();
 
 	

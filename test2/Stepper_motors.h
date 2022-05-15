@@ -45,8 +45,8 @@ void acvt_lwr_mixr(){
 
 //Stepper Motor functions
 void stprTrayPsh_init(){
-	STPRTrayPsh_DDR = 0xFF;
-	STPRTrayPsh_PRT = 0X00;
+	STPRTrayPsh_DDR |= 0xFF;
+	STPRTrayPsh_PRT &= 0x0F;
 	
 }
 void stprMix_init(){
@@ -59,45 +59,45 @@ void stprTrayPsh_clk(int cycles){
 	
 	const unsigned int period= 6;
 	for(int i=0;i<cycles;i++)
-	{	STPRTrayPsh_PRT = 0x90;_delay_ms(period);
-		STPRTrayPsh_PRT = 0xC0;_delay_ms(period);
-		STPRTrayPsh_PRT = 0x60;_delay_ms(period);
-		STPRTrayPsh_PRT = 0x30;_delay_ms(period);
+	{	STPRTrayPsh_PRT = (STPRTrayPsh_PRT & 0x0F) | 0x90;_delay_ms(period);
+		STPRTrayPsh_PRT = (STPRTrayPsh_PRT & 0x0F) | 0xC0;_delay_ms(period);
+		STPRTrayPsh_PRT = (STPRTrayPsh_PRT & 0x0F) | 0x60;_delay_ms(period);
+		STPRTrayPsh_PRT = (STPRTrayPsh_PRT & 0x0F) | 0x30;_delay_ms(period);
 	}
-	STPRTrayPsh_PRT = 0x90; /* Last step to initial position */_delay_ms(period);
+	STPRTrayPsh_PRT = (STPRTrayPsh_PRT & 0x0F) | 0x90; /* Last step to initial position */_delay_ms(period);
 }
 
 void stprTrayPsh_aclk(int cycles){
 	
 	const unsigned int period= 6;
 	for(int i=0;i<cycles;i++)
-	{	STPRTrayPsh_PRT = 0x30;_delay_ms(period);
-		STPRTrayPsh_PRT = 0x60;_delay_ms(period);
-		STPRTrayPsh_PRT = 0xC0;_delay_ms(period);
-		STPRTrayPsh_PRT = 0x90;_delay_ms(period);
+	{	STPRTrayPsh_PRT = (STPRTrayPsh_PRT & 0x0F) | 0x30;_delay_ms(period);
+		STPRTrayPsh_PRT = (STPRTrayPsh_PRT & 0x0F) | 0x60;_delay_ms(period);
+		STPRTrayPsh_PRT = (STPRTrayPsh_PRT & 0x0F) | 0xC0;_delay_ms(period);
+		STPRTrayPsh_PRT = (STPRTrayPsh_PRT & 0x0F) | 0x90;_delay_ms(period);
 	}
-	STPRTrayPsh_PRT = 0x90; /* Last step to initial position */_delay_ms(period);
+	STPRTrayPsh_PRT = (STPRTrayPsh_PRT & 0x0F) | 0x90; /* Last step to initial position */_delay_ms(period);
 }
 void stprMix_clk(int cycles){
 	
 	const unsigned int period= 6;
 	for(int i=0;i<cycles;i++)
 	{
-		STPRMix_PRT = 0x90;_delay_ms(period);
-		STPRMix_PRT = 0xC0;_delay_ms(period);
-		STPRMix_PRT = 0x60;_delay_ms(period);
-		STPRMix_PRT = 0x30;_delay_ms(period);
+		STPRMix_PRT = (STPRMix_PRT & 0x0F) | 0x90;_delay_ms(period);
+		STPRMix_PRT = (STPRMix_PRT & 0x0F) | 0xC0;_delay_ms(period);
+		STPRMix_PRT = (STPRMix_PRT & 0x0F) | 0x60;_delay_ms(period);
+		STPRMix_PRT = (STPRMix_PRT & 0x0F) | 0x30;_delay_ms(period);
 	}
-	STPRMix_PRT = 0x90; /* Last step to initial position */_delay_ms(period);
+	STPRMix_PRT = (STPRMix_PRT & 0x0F) | 0x90; /* Last step to initial position */_delay_ms(period);
 }
 void stprMix_aclk(int cycles){
 	
 	const unsigned int period= 6;
 	for(int i=0;i<cycles;i++)
-	{	STPRMix_PRT = 0x30;_delay_ms(period);
-		STPRMix_PRT = 0x60;_delay_ms(period);
-		STPRMix_PRT = 0xC0;_delay_ms(period);
-		STPRMix_PRT = 0x90;_delay_ms(period);
+	{	STPRMix_PRT = (STPRMix_PRT & 0x0F) | 0x30;_delay_ms(period);
+		STPRMix_PRT = (STPRMix_PRT & 0x0F) | 0x60;_delay_ms(period);
+		STPRMix_PRT = (STPRMix_PRT & 0x0F) | 0xC0;_delay_ms(period);
+		STPRMix_PRT = (STPRMix_PRT & 0x0F) | 0x90;_delay_ms(period);
 	}
-	STPRMix_PRT = 0x90; /* Last step to initial position */_delay_ms(period);
+	STPRMix_PRT = (STPRMix_PRT & 0x0F) | 0x90; /* Last step to initial position */_delay_ms(period);
 }

@@ -1,38 +1,23 @@
 /*
- * adc.h
+ * ADC.h
  *
- * Created: 10/11/2021 1:14:23 AM
- *  Author: Nimash
- */
+ * Created: 4/13/2021 7:53:01 AM
+ *  Author: Achintha
+ */ 
 
 
 #ifndef ADC_H_
 #define ADC_H_
 
-void ADC_Init()
-{
-	DDRA=0x0;			/* Make ADC port as input */
-	ADCSRA = 0x87;			/* Enable ADC, fr/128  */
-	ADMUX = 0x40;			/* Vref: Avcc, ADC channel: 0 */
 
-}
+#include <avr/io.h>
 
-int ADC_Read(char channel)
-{
-	int Ain,AinLow;
+//initialize ADC
+void adc_init();
 
-	ADMUX=ADMUX|(channel & 0x0f);	/* Set input channel to read */
+// read adc value
+uint16_t adc_read(uint8_t ch);
 
-	ADCSRA |= (1<<ADSC);		/* Start conversion */
-	while((ADCSRA&(1<<ADIF))==0);	/* Monitor end of conversion interrupt */
-
-	_delay_us(10);
-	AinLow = (int)ADCL;		/* Read lower byte*/
-	Ain = (int)ADCH*256;		/* Read higher 2 bits and
-					Multiply with weight */
-	Ain = Ain + AinLow;
-	return(Ain);			/* Return digital value*/
-}
 
 
 

@@ -120,19 +120,31 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="adc.c">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="adc.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="dc.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="flowsensor.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="i2c.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="IRSensor.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="keypad.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="keypad.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="lcd_func.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="LCD_I2C.h">

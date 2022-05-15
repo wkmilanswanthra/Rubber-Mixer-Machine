@@ -11,9 +11,9 @@
 #include <string.h>
 #include <util/delay.h>
 
-void pump_w(float);
-void pump_l(float);
-void pump_a(float);
+void pump_w();
+void pump_l();
+void pump_a();
 void timer_1();
 
 float calibrationFactor = 4.5;
@@ -34,7 +34,10 @@ void timer_1(){
 	TCNT1=0;
 }
 
-void pump_w(float v_water){
+void pump_w(){
+	DDRB |=(1<<5);
+	PORTB &=~(1<<5);
+	
 	PORTB = PORTB | (0<<4);
 	PORTB = PORTB | (0<<3);    /*multiplexer input*/
 	PORTB = PORTB | (1<<5);    /* Turn on the Relay and motor ON*/
@@ -46,7 +49,7 @@ void pump_w(float v_water){
 	MCUCR = ((1<<ISC00)|(1<<ISC01));/* Trigger INT0 on Rising Edge triggered */
 	
 	sei();                   /*enable interrupts*/
-	while (totalMilliLitres!=v_water)   {
+	while (totalMilliLitres!=1000)   {
 		if((millisec-oldTime)>=1000)
 		{
 			sec++;
@@ -75,7 +78,9 @@ ISR (INT0_vect){
 	pulseCount++;
 }
 
-void pump_l(float v_latex){
+void pump_l(){
+	DDRB |=(1<<6);
+	PORTB &=~(1<<6);
 	PORTB = PORTB | (1<<6); /* Turn on the Relay and motor ON*/
 	timer_1();
 	DDRD &= ~(1 << DDD2);     // Clear the PD2 pin
@@ -86,7 +91,7 @@ void pump_l(float v_latex){
 
 	sei();// enable interrupts
 	
-	while (totalMilliLitres!=v_latex)   {
+	while (totalMilliLitres!=1000)   {
 		if((millisec-oldTime)>=1000)
 		{
 			sec++;
@@ -116,7 +121,9 @@ ISR (INT1_vect){
 	pulseCount++;
 }
 
-void pump_a(float v_acid){
+void pump_a(){
+	DDRB |=(1<<7);
+	PORTB &=~(1<<7);
 	PORTB = PORTB | (1<<7); /* Turn OFF the Relay and motor ON*/
 	timer_1();
 	DDRB &= ~(1 << DDB2);     // Clear the PD2 pin
@@ -128,7 +135,7 @@ void pump_a(float v_acid){
 
 	sei();// enable interrupts
 	
-	while (totalMilliLitres!=v_acid)   {
+	while (totalMilliLitres!=1000)   {
 		if((millisec-oldTime)>=1000)
 		{
 			sec++;

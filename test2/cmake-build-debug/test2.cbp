@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="test2"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="F:/UOM/Lectures/L1S1/ICT Poject/Atmega32 Programming/test2/test2/test2/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="F:/Software/CodeBlocks/MinGW/bin/mingw32-make.exe -f &quot;F:/UOM/Lectures/L1S1/ICT Poject/Atmega32 Programming/test2/test2/test2/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="F:/Software/CodeBlocks/MinGW/bin/mingw32-make.exe -f &quot;F:/UOM/Lectures/L1S1/ICT Poject/Atmega32 Programming/test2/test2/test2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="F:/Software/CodeBlocks/MinGW/bin/mingw32-make.exe -f &quot;F:/UOM/Lectures/L1S1/ICT Poject/Atmega32 Programming/test2/test2/test2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="F:/Software/CodeBlocks/MinGW/bin/mingw32-make.exe -f &quot;F:/UOM/Lectures/L1S1/ICT Poject/Atmega32 Programming/test2/test2/test2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="F:/UOM/Lectures/L1S1/ICT Poject/Atmega32 Programming/test2/test2/test2/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="F:/Software/CodeBlocks/MinGW/bin/mingw32-make.exe -f &quot;F:/UOM/Lectures/L1S1/ICT Poject/Atmega32 Programming/test2/test2/test2/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="F:/Software/CodeBlocks/MinGW/bin/mingw32-make.exe -f &quot;F:/UOM/Lectures/L1S1/ICT Poject/Atmega32 Programming/test2/test2/test2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="F:/Software/CodeBlocks/MinGW/bin/mingw32-make.exe -f &quot;F:/UOM/Lectures/L1S1/ICT Poject/Atmega32 Programming/test2/test2/test2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="F:/Software/CodeBlocks/MinGW/bin/mingw32-make.exe -f &quot;F:/UOM/Lectures/L1S1/ICT Poject/Atmega32 Programming/test2/test2/test2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test2">
+				<Option output="F:/UOM/Lectures/L1S1/ICT Poject/Atmega32 Programming/test2/test2/test2/cmake-build-debug/test2.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="F:/UOM/Lectures/L1S1/ICT Poject/Atmega32 Programming/test2/test2/test2/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="F:/UOM/Lectures/L1S1/ICT Poject/Atmega32 Programming/test2/test2/test2/."/>
+					<Add directory="F:/Software/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include"/>
+					<Add directory="F:/Software/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="F:/Software/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="F:/Software/CodeBlocks/MinGW/bin/mingw32-make.exe -f &quot;F:/UOM/Lectures/L1S1/ICT Poject/Atmega32 Programming/test2/test2/test2/cmake-build-debug/Makefile&quot;  VERBOSE=1 test2"/>
+					<CompileFile command="F:/Software/CodeBlocks/MinGW/bin/mingw32-make.exe -f &quot;F:/UOM/Lectures/L1S1/ICT Poject/Atmega32 Programming/test2/test2/test2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="F:/Software/CodeBlocks/MinGW/bin/mingw32-make.exe -f &quot;F:/UOM/Lectures/L1S1/ICT Poject/Atmega32 Programming/test2/test2/test2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="F:/Software/CodeBlocks/MinGW/bin/mingw32-make.exe -f &quot;F:/UOM/Lectures/L1S1/ICT Poject/Atmega32 Programming/test2/test2/test2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test2/fast">
+				<Option output="F:/UOM/Lectures/L1S1/ICT Poject/Atmega32 Programming/test2/test2/test2/cmake-build-debug/test2.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="F:/UOM/Lectures/L1S1/ICT Poject/Atmega32 Programming/test2/test2/test2/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="F:/UOM/Lectures/L1S1/ICT Poject/Atmega32 Programming/test2/test2/test2/."/>
+					<Add directory="F:/Software/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include"/>
+					<Add directory="F:/Software/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="F:/Software/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="F:/Software/CodeBlocks/MinGW/bin/mingw32-make.exe -f &quot;F:/UOM/Lectures/L1S1/ICT Poject/Atmega32 Programming/test2/test2/test2/cmake-build-debug/Makefile&quot;  VERBOSE=1 test2/fast"/>
+					<CompileFile command="F:/Software/CodeBlocks/MinGW/bin/mingw32-make.exe -f &quot;F:/UOM/Lectures/L1S1/ICT Poject/Atmega32 Programming/test2/test2/test2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="F:/Software/CodeBlocks/MinGW/bin/mingw32-make.exe -f &quot;F:/UOM/Lectures/L1S1/ICT Poject/Atmega32 Programming/test2/test2/test2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="F:/Software/CodeBlocks/MinGW/bin/mingw32-make.exe -f &quot;F:/UOM/Lectures/L1S1/ICT Poject/Atmega32 Programming/test2/test2/test2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="F:/UOM/Lectures/L1S1/ICT Poject/Atmega32 Programming/test2/test2/test2/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="F:/Software/CodeBlocks/MinGW/bin/mingw32-make.exe -f &quot;F:/UOM/Lectures/L1S1/ICT Poject/Atmega32 Programming/test2/test2/test2/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="F:/Software/CodeBlocks/MinGW/bin/mingw32-make.exe -f &quot;F:/UOM/Lectures/L1S1/ICT Poject/Atmega32 Programming/test2/test2/test2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="F:/Software/CodeBlocks/MinGW/bin/mingw32-make.exe -f &quot;F:/UOM/Lectures/L1S1/ICT Poject/Atmega32 Programming/test2/test2/test2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="F:/Software/CodeBlocks/MinGW/bin/mingw32-make.exe -f &quot;F:/UOM/Lectures/L1S1/ICT Poject/Atmega32 Programming/test2/test2/test2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="F:/UOM/Lectures/L1S1/ICT Poject/Atmega32 Programming/test2/test2/test2/IRSensor.h">
+			<Option target="test2"/>
+		</Unit>
+		<Unit filename="F:/UOM/Lectures/L1S1/ICT Poject/Atmega32 Programming/test2/test2/test2/LCD_I2C.h">
+			<Option target="test2"/>
+		</Unit>
+		<Unit filename="F:/UOM/Lectures/L1S1/ICT Poject/Atmega32 Programming/test2/test2/test2/Stepper_motors.h">
+			<Option target="test2"/>
+		</Unit>
+		<Unit filename="F:/UOM/Lectures/L1S1/ICT Poject/Atmega32 Programming/test2/test2/test2/ToRelay.h">
+			<Option target="test2"/>
+		</Unit>
+		<Unit filename="F:/UOM/Lectures/L1S1/ICT Poject/Atmega32 Programming/test2/test2/test2/adc.h">
+			<Option target="test2"/>
+		</Unit>
+		<Unit filename="F:/UOM/Lectures/L1S1/ICT Poject/Atmega32 Programming/test2/test2/test2/cust_lcd4.c">
+			<Option target="test2"/>
+		</Unit>
+		<Unit filename="F:/UOM/Lectures/L1S1/ICT Poject/Atmega32 Programming/test2/test2/test2/cust_lcd4.h">
+			<Option target="test2"/>
+		</Unit>
+		<Unit filename="F:/UOM/Lectures/L1S1/ICT Poject/Atmega32 Programming/test2/test2/test2/dc.h">
+			<Option target="test2"/>
+		</Unit>
+		<Unit filename="F:/UOM/Lectures/L1S1/ICT Poject/Atmega32 Programming/test2/test2/test2/flowsensor.h">
+			<Option target="test2"/>
+		</Unit>
+		<Unit filename="F:/UOM/Lectures/L1S1/ICT Poject/Atmega32 Programming/test2/test2/test2/i2c.h">
+			<Option target="test2"/>
+		</Unit>
+		<Unit filename="F:/UOM/Lectures/L1S1/ICT Poject/Atmega32 Programming/test2/test2/test2/keypad.c">
+			<Option target="test2"/>
+		</Unit>
+		<Unit filename="F:/UOM/Lectures/L1S1/ICT Poject/Atmega32 Programming/test2/test2/test2/keypad.h">
+			<Option target="test2"/>
+		</Unit>
+		<Unit filename="F:/UOM/Lectures/L1S1/ICT Poject/Atmega32 Programming/test2/test2/test2/lcd_func.h">
+			<Option target="test2"/>
+		</Unit>
+		<Unit filename="F:/UOM/Lectures/L1S1/ICT Poject/Atmega32 Programming/test2/test2/test2/lcd_lib.c">
+			<Option target="test2"/>
+		</Unit>
+		<Unit filename="F:/UOM/Lectures/L1S1/ICT Poject/Atmega32 Programming/test2/test2/test2/lcd_lib.h">
+			<Option target="test2"/>
+		</Unit>
+		<Unit filename="F:/UOM/Lectures/L1S1/ICT Poject/Atmega32 Programming/test2/test2/test2/main.c">
+			<Option target="test2"/>
+		</Unit>
+		<Unit filename="F:/UOM/Lectures/L1S1/ICT Poject/Atmega32 Programming/test2/test2/test2/relayEx.c">
+			<Option target="test2"/>
+		</Unit>
+		<Unit filename="F:/UOM/Lectures/L1S1/ICT Poject/Atmega32 Programming/test2/test2/test2/sensor.h">
+			<Option target="test2"/>
+		</Unit>
+		<Unit filename="F:/UOM/Lectures/L1S1/ICT Poject/Atmega32 Programming/test2/test2/test2/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

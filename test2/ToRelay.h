@@ -1,23 +1,28 @@
 /*
- * ToRelay.h
+ * torelay.h
  *
- * Created: 5/2/2022 8:18:58 AM
+ * Created: 5/12/2022 5:49:20 PM
  *  Author: Nishshanka
- */ 
+ */
 
 
-#include <avr/io.h>
-#include <util/delay.h>
+void switchon();
+void switchoff();
 
 
-void switchOff();
-void switchOn();
 
-void switchOn()
+void switchon()
 {
-	PORTC =PORTC|(1<<3);
+	DDRC |=(1<<PC3);
+	PORTC &=~(1<<PC3);
+	
+	PORTC|=(1<<PC3);
 }
-void switchOff()
+
+void switchoff()
 {
-	PORTC = PORTC|(0<<3);
+	DDRC |=(1<<PC3);
+	PORTC &=~(1<<PC3);
+	
+	PORTC&=~(1<<PC3);
 }
