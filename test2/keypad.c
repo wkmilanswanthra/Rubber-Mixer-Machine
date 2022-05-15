@@ -2,22 +2,22 @@
 * CFile1.c
 *
 * Created: 11/26/2021 11:18:57 PM
-*  Author: Admin
+*  Author: Milan
 */
 #include "keypad.h"
 
-#define KEY_PRT 	PORTC
-#define KEY_DDR		DDRC
-#define KEY_PIN		PINC
+#define KEY_PRT 	PORTA
+#define KEY_DDR		DDRA
+#define KEY_PIN		PINA
 
-unsigned char keypad[4][4] = {	{'7','8','9','.'},
-								{'4','5','6','x'},
-								{'1','2','3','-'},
-								{' ','0','=','+'}};
+unsigned char *keypad[4][4] = {	{"7","8","9","."},
+{"4","5","6","x"},
+{"1","2","3","-"},
+{" ","0","=","+"}};
 
 unsigned char colloc, rowloc;
 
-char keyfind()
+char *keyfind()
 {
 	while(1)
 	{

@@ -21,11 +21,10 @@
 int num_trays = 0;
 float vol = 0;
 
-char temp[10];
-char str[10];
-int digs = 0;
+
 
 void wlcm_msg();
+
 int num_tray();
 int tray_vol();
 
@@ -34,7 +33,7 @@ void wlcm_msg()
 {
 	i2c_init();
 	i2c_start();
-	i2c_write(0x07);
+	i2c_write(0x70);
 	lcd_init();
 	
 	lcd_cmd(0x80);
@@ -53,6 +52,8 @@ void wlcm_msg()
 	}
 }
 
+
+
 //Get the user input for the number of trays
 int num_tray()
 {
@@ -66,6 +67,9 @@ int num_tray()
 	lcd_cmd(0xC0);
 	lcd_cmd(0x0F);
 	
+	char temp[10];
+	char str[10];
+	int digs = 0;
 	
 	do
 	{
@@ -110,13 +114,18 @@ int num_tray()
 //Getting the volume of trays in milliliters
 int tray_vol()
 {
+
 	redo_vol:
 	
 	
 	lcd_msg("Vol.of a Tray(ml)");
 	lcd_cmd(0xC0);
 	lcd_cmd(0x0F);
-	digs=0;
+	
+	char temp[10];
+	char str[10];
+	int digs = 0;
+	
 	do
 	{
 		strcpy(temp,keyfind());
@@ -157,4 +166,23 @@ int tray_vol()
 	}
 	return vol;
 	
+}
+
+void disp_w_low()
+{
+	lcd_cmd(0x01);
+	lcd_cmd(0x80);
+	lcd_msg("Water Level Low!");
+}
+void disp_a_low()
+{
+	lcd_cmd(0x01);
+	lcd_cmd(0x80);
+	lcd_msg("Acid Level Low!");
+}
+void disp_l_low()
+{
+	lcd_cmd(0x01);
+	lcd_cmd(0x80);
+	lcd_msg("Latex Level Low!");
 }

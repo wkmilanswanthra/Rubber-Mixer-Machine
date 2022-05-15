@@ -38,6 +38,7 @@ SUBDIRS :=  \
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
+../adc.c \
 ../keypad.c \
 ../lcd_lib.c \
 ../main.c
@@ -50,21 +51,25 @@ ASM_SRCS +=
 
 
 OBJS +=  \
+adc.o \
 keypad.o \
 lcd_lib.o \
 main.o
 
 OBJS_AS_ARGS +=  \
+adc.o \
 keypad.o \
 lcd_lib.o \
 main.o
 
 C_DEPS +=  \
+adc.d \
 keypad.d \
 lcd_lib.d \
 main.d
 
 C_DEPS_AS_ARGS +=  \
+adc.d \
 keypad.d \
 lcd_lib.d \
 main.d
@@ -83,6 +88,13 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+./adc.o: .././adc.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)F:\Software\Atmel Studio 7\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"F:\Software\Atmel Studio 7\7.0\Packs\atmel\ATmega_DFP\1.6.364\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "F:\Software\Atmel Studio 7\7.0\Packs\atmel\ATmega_DFP\1.6.364\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
 ./keypad.o: .././keypad.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
