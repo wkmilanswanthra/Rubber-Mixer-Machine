@@ -12,5 +12,5 @@
 * Use the seperate folder named "test2" to upload new or changed header files 
 
 ## Components that need to be completed
-* - [x] Code for the Ultrasonic sensor (Detect the liquid levels once before the LCD Display starts)
+* - [ ] Code for the Ultrasonic sensor (Detect the liquid levels once before the LCD Display starts)
 * - [ ] Code for the calculation of pH values and required volumes
