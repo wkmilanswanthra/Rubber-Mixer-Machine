@@ -18,7 +18,8 @@
 //-----------------------------Custom Header Files---------------------------------
 
 //Keypad
-#include "keypad.h"
+//#include "keypad.h"
+
 //Tray Pusher
 #include "Stepper_motors.h"
 //Mixer
@@ -37,6 +38,8 @@
 #include "lcd_func.h"
 
 
+float pH;
+int adc_ph;
 
 int main(void)
 {
@@ -50,44 +53,52 @@ int main(void)
 		//------------------------------ultrasonic-----------------------(In progress)
 		
 		
-		/*ultrasonic1();	//activate ultrasonic sensor in the water tank
-		if (!depth())	// Display a message if the liquid is empty
+		HCSR04Init();
+		
+		/*while (ultrasonic1())	// Display a message if the liquid is empty
 		{
 			lcd_cmd(0x01);
 			lcd_cmd(0x80);
 			lcd_msg("liqd emt");
-		}
+		}*/
 		
-		
-		ultrasonic2();	//activate ultrasonic sensor in the acid tank
-		if (!depth())	// Display a message if the liquid is empty
+		/*lcd_cmd(0x01);
+		lcd_cmd(0x80);
+		lcd_msg("actvt us 2");
+		_delay_ms(500);
+		while (ultrasonic2())	// Display a message if the liquid is empty
 		{
-		}
+			
+			lcd_cmd(0x01);
+			lcd_cmd(0x80);
+			lcd_msg("liqd emt");
+		}*/
 		
 		
-		ultrasonic3();	//activate ultrasonic sensor in the latex tank
-		if (!depth())	// Display a message if the liquid is empty
+		/*if (ultrasonic3())	// Display a message if the liquid is empty
 		{
+			lcd_cmd(0x01);
+			lcd_cmd(0x80);
+			lcd_msg("liqd emt");
 		}*/
 		
 		//----------------------------------ph sensor--------------------------(in progress)
 		
 		adc_init();
 		
-		int adc_ph=adc_read(0);   //ph reading at PA3
+		adc_ph=adc_read(3);   //ph reading at PA3
 		
-		float pH=14/1024.0*adc_ph; //float pH=2*((adc_ph*5)/1024.0)+1.2;
+		pH=14/1024.0*adc_ph;  //float pH=2*((adc_ph*5)/1024.0)+1.2;
 		
-		int len = snprintf(NULL, 0, "%f", pH);
+		/*int len = snprintf(NULL, 0, "%f", pH);	
 		char *result = malloc(len + 1);
-		snprintf(result, len + 1, "%f", pH);
-		
+		snprintf(result, len + 1, "%f", pH);*/
+		printf("%f", pH);
+		char result[10];
+		sprintf(result,"%2.2f",pH);
+
 		//calculate the volume of water,latex and acid needed
-		lcd_cmd(0x01);
-		lcd_cmd(0x80);
-		lcd_msg(result);
 		
-		_delay_ms(2000);
 		
 		
 		//--------------------------------conveyor start------------------------------
@@ -161,20 +172,28 @@ int main(void)
 		lcd_msg("Acvt mixer Up");
 		
 		stprMix_init();//initiate the stepper motor
-		stprMix_aclk(2);// rotate the stepper motor to lower the mixer;
+		stprMix_aclk(100);// rotate the stepper motor to lower the mixer;
 		
 		//------------------------------conveyor belt start-------------------------------
 		lcd_cmd(0x01);
 		lcd_cmd(0x80);
-		lcd_msg("Acvt Conveyor");
+		lcd_msg("Acvt Conveyor"); //deactivate the conveyor belt
 		
 		switchon();
 		
 		
 		num_trays--; //reduce the number of trays by 1
 		
-		_delay_ms(5000
-		);
+		_delay_ms(5000);
+		
+		lcd_cmd(0x01);
+		lcd_cmd(0x80);
+		lcd_msg("Dactvt Conveyor");
+		
+		switchoff(); //deactivate the conveyor belt
+		
+		_delay_ms(2000);
+		
 		lcd_cmd(0x01);
 		lcd_cmd(0x80);
 		lcd_msg("End of program");

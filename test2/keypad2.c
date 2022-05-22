@@ -4,15 +4,17 @@
  * Created: 9/16/2016 5:09:58 PM
  *  Author: Nimash eshan
  */ 
- #include "keypad.h"
+ #include "keypad2.h"
+ #include "keypadconfig.h"
 
+char *ret[1] ={"0"};
  void keypad_init(void)
  {
  //setting ROWs as outputs
 	ROW0_DDR |=(1U<<ROW0);  
 	ROW1_DDR |=(1U<<ROW1);
 	ROW2_DDR |=(1U<<ROW2);
-	ROW3_DDR |=(1U<<ROW3);
+	//ROW3_DDR |=(1U<<ROW3);
 //setting pins as input
 	LINE0_DDR&=~(1U<<LINE0);
 	LINE1_DDR&=~(1U<<LINE1);
@@ -24,7 +26,7 @@
 	LINE2_PULLUP|=(1U<<LINE2);
 	LINE3_PULLUP|=(1U<<LINE3);
  }
- uint8_t keypad_scan(void)
+ char * keypad_scan(void)
  {
  uint8_t row,key,shift;
  //loop on rows
@@ -34,7 +36,7 @@
 	 ROW0_PORT|=(1U<<ROW0);
 	 ROW1_PORT|=(1U<<ROW1);
 	 ROW2_PORT|=(1U<<ROW2);
-	 ROW3_PORT|=(1U<<ROW3);
+	 //ROW3_PORT|=(1U<<ROW3);
 	 //put zero on the selected row
 		 if(row==0)
 		 {
@@ -48,10 +50,10 @@
 		 {
 			 ROW2_PORT&=~(1U<<ROW2);
 		 }
-		 else 
-		 {
-			ROW3_PORT&=~(1U<<ROW3);	 
-		 }
+		// else 
+		 //{
+		//	ROW3_PORT&=~(1U<<ROW3);	 
+		// }
 	 //take snapshot from the input
 	 shift  = (LINE0_PIN&(1U<<LINE0))>>LINE0;
 	 key  = (shift<<0);
@@ -81,30 +83,30 @@
 		//inside the row switching switch the key
 		switch(key)
 		{
-			case 0x70: return 'E';
-			case 0xB0: return '9';
-			case 0xD0: return '8';
-			case 0xE0: return '7';
+			case 0x70: ret[0] ="E";
+			case 0xB0: ret[0] ="9";
+			case 0xD0: ret[0] ="8";
+			case 0xE0: ret[0] ="7";
 		}
 		break;
 		case 1:
 		//inside the row switching switch the key
 		switch(key)
 		{
-			case 0x70: return 'A';
-			case 0xB0: return '6';
-			case 0xD0: return '5';
-			case 0xE0: return '4';
+			case 0x70: ret[0] ="A";
+			case 0xB0: ret[0] ="6";
+			case 0xD0: ret[0] ="5";
+			case 0xE0: ret[0] ="4";
 		}
 		break;
 		case 2:
 		//inside the row switching switch the key
 		switch(key)
 		{
-			case 0x70: return 'B';
-			case 0xB0: return '3';
-			case 0xD0: return '2';
-			case 0xE0: return '1';
+			case 0x70: ret[0] ="B";
+			case 0xB0: ret[0] ="3";
+			case 0xD0: ret[0] ="2";
+			case 0xE0: ret[0] ="1";
 			
 		}
 		break;
@@ -112,12 +114,13 @@
 		//inside the row switching switch the key
 		switch(key)
 		{
-			case 0x70: return '+';
-			case 0xB0: return '=';
-			case 0xD0: return '0';
-			case 0xE0: return 'C';
+			case 0x70: ret[0] = "+";
+			case 0xB0: ret[0] = "=";
+			case 0xD0: ret[0] = "0";
+			case 0xE0: ret[0] = "C";
 		}
 		break;
+		return ret[0];
 	}
 	//return the value
 	return 0;
