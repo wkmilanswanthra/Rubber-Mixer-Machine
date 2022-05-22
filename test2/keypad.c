@@ -31,10 +31,10 @@ char *keyfind()
 			colloc = (KEY_PIN & 0x0F); /* read status of column */
 		}while(colloc != 0x0F);
 		
-		do
-		{
 			do
 			{
+				do
+				{
 				_delay_ms(20);             /* 20ms key debounce time */
 				colloc = (KEY_PIN & 0x0F); /* read status of column */
 				}while(colloc == 0x0F);        /* check for any key press */

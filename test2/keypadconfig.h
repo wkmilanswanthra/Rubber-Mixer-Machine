@@ -12,28 +12,28 @@
 #define LINE2		6
 #define LINE3		7
 //KEYPAD Direction
-#define ROW0_DDR		DDRD
-#define ROW1_DDR		DDRD
-#define ROW2_DDR		DDRD
-#define ROW3_DDR		DDRD
-#define LINE0_DDR		DDRD
-#define LINE1_DDR		DDRD
-#define LINE2_DDR		DDRD
-#define LINE3_DDR		DDRD
+#define ROW0_DDR		DDRA
+#define ROW1_DDR		DDRA
+#define ROW2_DDR		DDRA
+#define ROW3_DDR		DDRA
+#define LINE0_DDR		DDRA
+#define LINE1_DDR		DDRA
+#define LINE2_DDR		DDRA
+#define LINE3_DDR		DDRA
 //ROWs' PORTs
-#define ROW0_PORT		PORTD
-#define ROW1_PORT		PORTD
-#define ROW2_PORT		PORTD
-#define ROW3_PORT		PORTD
+#define ROW0_PORT		PORTA
+#define ROW1_PORT		PORTA
+#define ROW2_PORT		PORTA
+#define ROW3_PORT		PORTA
 //LINEs' PINs
-#define LINE0_PIN		PIND	
-#define LINE1_PIN		PIND
-#define LINE2_PIN		PIND
-#define LINE3_PIN		PIND
+#define LINE0_PIN		PINA
+#define LINE1_PIN		PINA
+#define LINE2_PIN		PINA
+#define LINE3_PIN		PINA
 //LINES' PULLUP
-#define LINE0_PULLUP	PORTD
-#define LINE1_PULLUP	PORTD
-#define LINE2_PULLUP	PORTD
-#define LINE3_PULLUP	PORTD
+#define LINE0_PULLUP	PORTA
+#define LINE1_PULLUP	PORTA
+#define LINE2_PULLUP	PORTA
+#define LINE3_PULLUP	PORTA
 
 #endif //KEYPADCONFIG_H_

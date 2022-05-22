@@ -18,10 +18,10 @@ main.d main.o: .././main.c \
  f:\software\atmel\ studio\ 7\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h \
  f:\software\atmel\ studio\ 7\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
  f:\software\atmel\ studio\ 7\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
- .././keypad.h .././Stepper_motors.h .././dc.h .././adc.h .././ToRelay.h \
- .././sensor.h .././IRSensor.h .././flowsensor.h \
+ .././Stepper_motors.h .././dc.h .././adc.h .././ToRelay.h .././sensor.h \
+ .././IRSensor.h .././flowsensor.h \
  f:\software\atmel\ studio\ 7\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h \
- .././lcd_func.h .././i2c.h .././LCD_I2C.h
+ .././lcd_func.h .././i2c.h .././LCD_I2C.h .././keypad.h
 
 f:\software\atmel\ studio\ 7\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -61,8 +61,6 @@ f:\software\atmel\ studio\ 7\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\u
 
 f:\software\atmel\ studio\ 7\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h:
 
-.././keypad.h:
-
 .././Stepper_motors.h:
 
 .././dc.h:
@@ -84,3 +82,5 @@ f:\software\atmel\ studio\ 7\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\a
 .././i2c.h:
 
 .././LCD_I2C.h:
+
+.././keypad.h:
