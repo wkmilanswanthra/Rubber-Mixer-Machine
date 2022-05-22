@@ -22,26 +22,9 @@ void stprTrayPsh_clk(int);
 void stprTrayPsh_aclk(int);
 void stprMix_clk(int);
 void stprMix_aclk(int);
-void acvt_mixer();
-void acvt_trayPsh();
-void acvt_lwr_mixr();
 
-/* Tray Pusher */
-void acvt_trayPsh(){
-	stprTrayPsh_init();
-	stprTrayPsh_clk(2);
-	_delay_ms(10);
-	stprTrayPsh_aclk(2) ;
-}
-/* Lowering Mixer */
-void acvt_lwr_mixr(){
-	stprMix_init();
-	stprMix_clk(2);
-	_delay_ms(10);
-	//acvt_mixer();
-	_delay_ms(10);
-	stprMix_aclk(2);
-}
+
+
 
 //Stepper Motor functions
 void stprTrayPsh_init(){
@@ -54,7 +37,7 @@ void stprMix_init(){
 	STPRMix_PRT = 0X00;
 	
 }
-
+/*Push Action*/
 void stprTrayPsh_clk(int cycles){
 	
 	const unsigned int period= 6;
@@ -67,6 +50,7 @@ void stprTrayPsh_clk(int cycles){
 	STPRTrayPsh_PRT = (STPRTrayPsh_PRT & 0x0F) | 0x90; /* Last step to initial position */_delay_ms(period);
 }
 
+/*Pull Action*/
 void stprTrayPsh_aclk(int cycles){
 	
 	const unsigned int period= 6;
@@ -78,6 +62,8 @@ void stprTrayPsh_aclk(int cycles){
 	}
 	STPRTrayPsh_PRT = (STPRTrayPsh_PRT & 0x0F) | 0x90; /* Last step to initial position */_delay_ms(period);
 }
+
+/*Lowering Action*/
 void stprMix_clk(int cycles){
 	
 	const unsigned int period= 6;
@@ -90,6 +76,8 @@ void stprMix_clk(int cycles){
 	}
 	STPRMix_PRT = (STPRMix_PRT & 0x0F) | 0x90; /* Last step to initial position */_delay_ms(period);
 }
+
+/*Lifting Action*/
 void stprMix_aclk(int cycles){
 	
 	const unsigned int period= 6;

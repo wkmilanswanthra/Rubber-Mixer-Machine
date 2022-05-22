@@ -25,7 +25,7 @@ uint16_t adc_read(uint8_t ch)
 	// select the corresponding channel 0~7
 	
 	ch &= 0b00000111;  // AND operation with 7. select 3rd chanal
-	ADMUX = (ADMUX & 0xF8)|ch;
+	ADMUX = (ADMUX & 0xF8)|ch; //0b11111000   0b00000111
 
 	// start single conversion
 	// write '1' to ADSC
