@@ -17,9 +17,6 @@
 #define MAX 100
 //-----------------------------Custom Header Files---------------------------------
 
-//Keypad
-//#include "keypad.h"
-
 //Tray Pusher
 #include "Stepper_motors.h"
 //Mixer
@@ -29,7 +26,7 @@
 //AC Motor
 #include "ToRelay.h"
 //Ultrasonic Sensor
-#include "sensor.h"
+//#include "ultrasonic.h"
 //IR Sensor
 #include "IRSensor.h"
 //Flow Sensor
@@ -39,7 +36,8 @@
 
 
 float pH;
-int adc_ph;
+int adc_ph, var1;
+
 
 int main(void)
 {
@@ -47,56 +45,52 @@ int main(void)
 	wlcm_msg(); //display the welcome message 
 	int num_trays = num_tray(); // get the user input for the number of trays to be processed
 	int vol = tray_vol(); //get the user input for the volume of a tray
-		
+	initUS();
+	
 	//Main Program Loop
 	while(num_trays>0){
 		//------------------------------ultrasonic-----------------------(In progress)
-		
-		
-		HCSR04Init();
-		
-		/*while (ultrasonic1())	// Display a message if the liquid is empty
+
+		while (ultrasonic1())	// Display a message if the liquid is empty
 		{
 			lcd_cmd(0x01);
 			lcd_cmd(0x80);
-			lcd_msg("liqd emt");
-		}*/
+			lcd_msg("water empty");
+		}
 		
-		/*lcd_cmd(0x01);
-		lcd_cmd(0x80);
-		lcd_msg("actvt us 2");
-		_delay_ms(500);
+
+		
 		while (ultrasonic2())	// Display a message if the liquid is empty
 		{
 			
 			lcd_cmd(0x01);
 			lcd_cmd(0x80);
-			lcd_msg("liqd emt");
-		}*/
+			lcd_msg("latex empty");
+		}
 		
-		
-		/*if (ultrasonic3())	// Display a message if the liquid is empty
+
+		while (ultrasonic3())	// Display a message if the liquid is empty
 		{
 			lcd_cmd(0x01);
 			lcd_cmd(0x80);
-			lcd_msg("liqd emt");
-		}*/
+			lcd_msg("acid empty");
+		}
 		
 		//----------------------------------ph sensor--------------------------(in progress)
 		
-		adc_init();
+		/*adc_init();
 		
 		adc_ph=adc_read(3);   //ph reading at PA3
 		
 		pH=14/1024.0*adc_ph;  //float pH=2*((adc_ph*5)/1024.0)+1.2;
-		
+		*/
 		/*int len = snprintf(NULL, 0, "%f", pH);	
 		char *result = malloc(len + 1);
 		snprintf(result, len + 1, "%f", pH);*/
-		printf("%f", pH);
+		/*printf("%f", pH);
 		char result[10];
-		sprintf(result,"%2.2f",pH);
-
+		sprintf(result,"%2.2f",pH);*/
+		
 		//calculate the volume of water,latex and acid needed
 		
 		
@@ -169,7 +163,7 @@ int main(void)
 		//------------------------------tray holder up (mixer)----------------------------
 		lcd_cmd(0x01);
 		lcd_cmd(0x80);
-		lcd_msg("Acvt mixer Up");
+		lcd_msg("Acvt mixer Up");4
 		
 		stprMix_init();//initiate the stepper motor
 		stprMix_aclk(100);// rotate the stepper motor to lower the mixer;

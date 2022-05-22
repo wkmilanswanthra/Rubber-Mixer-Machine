@@ -1,12 +1,13 @@
+/*
+ * toUltra.h
+ *
+ * Created: 5/22/2022 7:48:03 PM
+ *  Author: Nishshanka
+ */ 
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include <string.h>
 #include <util/delay.h>
-
-void pump_w();
-void pump_l();
-void pump_a();
-void timer_1();
 
 void initUS();
 uint8_t ultrasonic1();

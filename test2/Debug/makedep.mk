@@ -4,6 +4,8 @@
 
 adc.c
 
+flowsensor.c
+
 keypad.c
 
 lcd_lib.c

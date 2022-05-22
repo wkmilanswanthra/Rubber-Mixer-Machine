@@ -129,6 +129,9 @@
     <Compile Include="dc.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="flowsensor.c">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="flowsensor.h">
       <SubType>compile</SubType>
     </Compile>
@@ -157,9 +160,6 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="main.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="sensor.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Stepper_motors.h">
