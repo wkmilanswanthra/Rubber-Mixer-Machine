@@ -78,22 +78,23 @@ int main(void)
 		
 		//----------------------------------ph sensor--------------------------(in progress)
 		
-		/*adc_init();
+		adc_init();
 		
 		adc_ph=adc_read(3);   //ph reading at PA3
 		
 		pH=14/1024.0*adc_ph;  //float pH=2*((adc_ph*5)/1024.0)+1.2;
-		*/
-		/*int len = snprintf(NULL, 0, "%f", pH);	
-		char *result = malloc(len + 1);
-		snprintf(result, len + 1, "%f", pH);*/
-		/*printf("%f", pH);
-		char result[10];
-		sprintf(result,"%2.2f",pH);*/
+		
 		
 		//calculate the volume of water,latex and acid needed
+		float ph0 = 8.00; // standard pH level of the final mixer
+		float l1; // The acid volume liquid which we  need to find
+		float l2 = vol; // Volume of the Tray
+		float c1 = 0.01; // concentration of acid
 		
-		
+		float antiLogPh0 = pow(10, ph0);  // antilog of the pH0
+		float logPh1 = log10(pH);        // log of the pH1
+
+		l1 = ((1000*l2 * antiLogPh0) + (l2*logPh1)) / c1;
 		
 		//--------------------------------conveyor start------------------------------
 		lcd_cmd(0x01);
@@ -149,9 +150,9 @@ int main(void)
 		lcd_cmd(0x80);
 		lcd_msg("Acvt pumps");
 		
-		pump_w();
-		pump_l();
-		pump_a();
+		pump_w(); //function of the water pump
+		pump_l(); //function of the latex pump
+		pump_a(l1); //function of the acid pump
 		
 		//---------------------------------DC motor (Mixer)-------------------------------
 		lcd_cmd(0x01);
@@ -163,7 +164,7 @@ int main(void)
 		//------------------------------tray holder up (mixer)----------------------------
 		lcd_cmd(0x01);
 		lcd_cmd(0x80);
-		lcd_msg("Acvt mixer Up");4
+		lcd_msg("Acvt mixer Up");
 		
 		stprMix_init();//initiate the stepper motor
 		stprMix_aclk(100);// rotate the stepper motor to lower the mixer;

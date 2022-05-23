@@ -8,7 +8,5 @@ flowsensor.c
 
 keypad.c
 
-lcd_lib.c
-
 main.c
 

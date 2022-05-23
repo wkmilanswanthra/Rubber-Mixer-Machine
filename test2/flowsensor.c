@@ -10,8 +10,8 @@ unsigned int flowMilliLitres=0;
 unsigned long totalMilliLitres=0;
 volatile unsigned long int millisec=0;
 volatile unsigned long int sec=0;
-int v_water ;
-int v_latex ;
+int v_water =1000 ;
+int v_latex = 1000;
 int v_acid ;
 
 
@@ -106,7 +106,8 @@ ISR (INT1_vect){
 	pulseCount2++;
 }
 
-void pump_a(){
+void pump_a( int vol){
+	v_acid = vol;
 	PORTB = PORTB | (0<<4);
 	PORTB = PORTB | (0<<3);    /*multiplexer input*/
 	PORTB = PORTB | (1<<7); /* Turn OFF the Relay and motor ON*/

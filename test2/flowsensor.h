@@ -5,7 +5,7 @@
 
 void pump_w();
 void pump_l();
-void pump_a();
+void pump_a(int vol);
 void timer_1();
 
 void initUS();
