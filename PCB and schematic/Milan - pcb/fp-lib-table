@@ -1,0 +1,4 @@
+(fp_lib_table
+  (lib (name "Footprints")(type "KiCad")(uri "${KIPRJMOD}/Footprints")(options "")(descr ""))
+  (lib (name "Symbols")(type "KiCad")(uri "${KIPRJMOD}/Symbols")(options "")(descr ""))
+)
