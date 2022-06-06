@@ -55,9 +55,8 @@ int main(void)
 		{
 			lcd_cmd(0x01);
 			lcd_cmd(0x80);
-			lcd_msg("water empty");
+			lcd_msg("water tank empty");
 		}
-		
 
 		
 		while (ultrasonic2())	// Display a message if the liquid is empty
@@ -65,7 +64,7 @@ int main(void)
 			
 			lcd_cmd(0x01);
 			lcd_cmd(0x80);
-			lcd_msg("latex empty");
+			lcd_msg("latex tank empty");
 		}
 		
 
@@ -73,7 +72,7 @@ int main(void)
 		{
 			lcd_cmd(0x01);
 			lcd_cmd(0x80);
-			lcd_msg("acid empty");
+			lcd_msg("acid tank empty");
 		}
 		
 		//----------------------------------ph sensor--------------------------(in progress)
@@ -99,24 +98,17 @@ int main(void)
 		//--------------------------------conveyor start------------------------------
 		lcd_cmd(0x01);
 		lcd_cmd(0x80);
-		lcd_msg("Acvt Conveyor");
+		lcd_msg("Machine started");
 		
 		
 		switchon();	//activate the relay switch to the AC motor
 		
 		//---------------------------------stepper push-------------------------------
-		lcd_cmd(0x01);
-		lcd_cmd(0x80);
-		lcd_msg("Acvt tray push");
-		
+	
 		stprTrayPsh_init();	// initialize the stepper motors
 		stprTrayPsh_clk(100);	// rotate the stepper motors to push the tray onto the conveyor
 		
 		//--------------------------------Ir detector---------------------------------
-		lcd_cmd(0x01);
-		lcd_cmd(0x80);
-		lcd_msg("Acvt IR sensor");
-		
 		while(1){
 			if (act_IR())		//if the IR function returns a true value the conveyor will stop
 			{
@@ -129,50 +121,31 @@ int main(void)
 		}
 		
 		//--------------------------------stepper pull--------------------------------
-		lcd_cmd(0x01);
-		lcd_cmd(0x80);
-		lcd_msg("back try psh");
-		
 		stprTrayPsh_init();	// initialize the stepper motors
 		stprTrayPsh_aclk(100);// rotate the stepper motors to pull the handle
 		
 		
 		//----------------------------tray holder down (mixer)----------------------------
-		lcd_cmd(0x01);
-		lcd_cmd(0x80);
-		lcd_msg("Acvt stpr mxr");
 		
 		stprMix_init(); //initiate the stepper motor
 		stprMix_clk(100);	// rotate the stepper motor to lower the mixer
 		
 		//----------------------------liquid pumps {flow sensor}--------------------------
-		lcd_cmd(0x01);
-		lcd_cmd(0x80);
-		lcd_msg("Acvt pumps");
-		
+	
 		pump_w(); //function of the water pump
 		pump_l(); //function of the latex pump
 		pump_a(l1); //function of the acid pump
 		
 		//---------------------------------DC motor (Mixer)-------------------------------
-		lcd_cmd(0x01);
-		lcd_cmd(0x80);
-		lcd_msg("Acvt mixer");
 		
 		acvt_mixer();
 		
 		//------------------------------tray holder up (mixer)----------------------------
-		lcd_cmd(0x01);
-		lcd_cmd(0x80);
-		lcd_msg("Acvt mixer Up");
 		
 		stprMix_init();//initiate the stepper motor
 		stprMix_aclk(100);// rotate the stepper motor to lower the mixer;
 		
 		//------------------------------conveyor belt start-------------------------------
-		lcd_cmd(0x01);
-		lcd_cmd(0x80);
-		lcd_msg("Acvt Conveyor"); //deactivate the conveyor belt
 		
 		switchon();
 		
@@ -181,9 +154,6 @@ int main(void)
 		
 		_delay_ms(5000);
 		
-		lcd_cmd(0x01);
-		lcd_cmd(0x80);
-		lcd_msg("Dactvt Conveyor");
 		
 		switchoff(); //deactivate the conveyor belt
 		
@@ -191,7 +161,7 @@ int main(void)
 		
 		lcd_cmd(0x01);
 		lcd_cmd(0x80);
-		lcd_msg("End of program");
+		lcd_msg("End of cycle");
 		
 		_delay_ms(2000);
 	}

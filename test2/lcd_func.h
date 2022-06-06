@@ -1,8 +1,9 @@
 /*
-* main.c
+* lcd_func.h
 *
 * Created: 11/20/2021 11:23:38 p. m.
-* Author : Group 30
+* Author : Milan
+
 */
 
 //Libraries used in the Project
